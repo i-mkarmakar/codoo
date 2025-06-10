@@ -5,7 +5,12 @@ import { useUser } from "@clerk/nextjs";
 
 const DashboardPage = () => {
   const { user } = useUser();
-  return <div>{ user?.firstName }</div>;
+  return(
+    <div>
+      <div>{ user?.firstName }</div>
+      <div></div>
+    </div>
+  )
 };
 
 export default DashboardPage;

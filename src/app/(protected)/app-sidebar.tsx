@@ -80,7 +80,7 @@ export function AppSidebar() {
                       href={item.url}
                       className={cn(
                         {
-                          "!bg-primary !text-white": pathname === item.url,
+                          "!bg-transprent !border": pathname === item.url,
                         },
                         "list-none",
                       )}
@@ -108,7 +108,7 @@ export function AppSidebar() {
                           className={cn(
                             "flex size-6 items-center justify-center rounded-sm border text-sm",
                             {
-                              "bg-primary text-white": true,
+                              "bg-transparent": true,
                             },
                           )}
                         >
