@@ -60,17 +60,19 @@ const features = [
     icon: Sparkles,
   },
 ];
+
 export default function Features({ stars }: { stars: string | null }) {
   return (
-    <div className="font-geist -pr-2 relative mx-auto mt-10 rounded-none md:w-10/12 md:border-[1.2px] md:border-b-0 md:border-l-0 dark:bg-black/[0.95]">
+    <div className="font-geist relative mx-auto mt-10 md:w-10/12 dark:bg-black/[0.95]">
       <div className="w-full md:mx-0">
-        <div className="relative grid grid-cols-1 border-b-[1.2px] md:grid-cols-3 md:grid-rows-2">
+        <div className="relative grid grid-cols-1 md:grid-cols-3 md:grid-rows-2">
           {features.map((feature, index) => (
             <div
               key={feature.id}
               className={cn(
-                "flex transform-gpu flex-col justify-center border-t-[1.2px] border-l-[1.2px] p-10 md:min-h-[240px] md:border-t-0",
-                index >= 3 && "md:border-t-[1.2px]",
+                "flex transform-gpu flex-col justify-center p-10 md:min-h-[240px] border-t border-l",
+                index % 3 === 0 && "md:border-l-0", // Remove left border on first column
+                index < 3 && "md:border-t-0"         // Remove top border on first row
               )}
             >
               <div className="my-1 flex items-center gap-2">
