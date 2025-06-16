@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { AvatarCircles } from "@/components/magicui/avatar-circles";
 
 const avatars = [
@@ -40,13 +41,13 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-4 pt-24 pb-20 sm:flex-row sm:gap-10 lg:px-6 xl:px-8">
         <div className="max-w-xl flex-shrink-0">
           <div>
-            <Badge variant="secondary" asChild>
+            <Badge variant="secondary" className="px-2 py-1" asChild>
               <Link href="/">What's new</Link>
             </Badge>
-            <span className="ml-2 inline-flex items-center">
-              Just shipped v1.0
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
+            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+              <span className="text-md">⚡Just shipped v1.0</span>
+              <ArrowUpRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedShinyText>
           </div>
           <h1 className="mt-6 text-4xl leading-tight font-bold text-white sm:text-5xl">
             <span>Code as a Team, Think as One</span> — with AI Collaboration.
@@ -71,7 +72,7 @@ export default function Hero() {
             <div className="mt-4 flex items-center gap-x-3">
               <AvatarCircles avatarUrls={avatars} numPeople={100} />
               <span className="text-muted-foreground text-sm font-medium">
-                Joined by <span className="font-semibold text-white">100+</span>{" "}
+                Joined by <span className="font-semibold">100+</span>{" "}
                 developers
               </span>
             </div>
