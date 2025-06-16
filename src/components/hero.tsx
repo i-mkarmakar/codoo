@@ -37,7 +37,7 @@ const avatars = [
 
 export default function Hero() {
   return (
-    <div className="relative flex w-full items-center justify-center overflow-hidden bg-black/[0.96] px-4 antialiased md:min-h-[40rem]">
+    <div className="relative flex w-full items-center justify-center overflow-hidden px-4 antialiased md:min-h-[40rem]">
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-4 pt-24 pb-20 sm:flex-row sm:gap-10 lg:px-6 xl:px-8">
         <div className="max-w-xl flex-shrink-0">
           <div>
@@ -49,10 +49,10 @@ export default function Hero() {
               <ArrowUpRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </AnimatedShinyText>
           </div>
-          <h1 className="mt-6 text-4xl leading-tight font-bold text-white sm:text-5xl">
+          <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl">
             <span>Code as a Team, Think as One</span> — with AI Collaboration.
           </h1>
-          <p className="text-md mt-4 leading-relaxed text-gray-300 opacity-80">
+          <p className="text-sm mt-4 text-muted-foreground">
             AI-powered coding companion — built to simplify collaboration,{" "}
             automate <br /> documentation, and make navigating complex codebases
             effortless.
