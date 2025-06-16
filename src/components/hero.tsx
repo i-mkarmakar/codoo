@@ -63,11 +63,11 @@ export default function Hero() {
             <div className="flex space-x-4">
               <Button size="lg" className="group">
                 Get Started
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
               <Button variant="outline" size="lg" className="group">
                 Learn More
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
             </div>
             <div className="mt-4 flex items-center gap-x-3">
