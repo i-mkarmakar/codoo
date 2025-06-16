@@ -38,6 +38,7 @@ const avatars = [
 export default function Hero() {
   return (
     <div className="relative flex w-full items-center justify-center overflow-hidden px-4 antialiased md:min-h-[40rem]">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-black dark:bg-[radial-gradient(rgba(255,255,255,0.10)_1px,transparent_1px)]"></div>
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-4 pt-24 pb-20 sm:flex-row sm:gap-10 lg:px-6 xl:px-8">
         <div className="max-w-xl flex-shrink-0">
           <div>
@@ -52,7 +53,7 @@ export default function Hero() {
           <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl">
             <span>Code as a Team, Think as One</span> — with AI Collaboration.
           </h1>
-          <p className="text-sm mt-4 text-muted-foreground">
+          <p className="text-muted-foreground mt-4 text-sm">
             AI-powered coding companion — built to simplify collaboration,{" "}
             automate <br /> documentation, and make navigating complex codebases
             effortless.
@@ -72,8 +73,7 @@ export default function Hero() {
             <div className="mt-4 flex items-center gap-x-3">
               <AvatarCircles avatarUrls={avatars} numPeople={100} />
               <span className="text-muted-foreground text-sm font-medium">
-                Joined by <span className="font-semibold">100+</span>{" "}
-                developers
+                Joined by <span className="font-semibold">100+</span> developers
               </span>
             </div>
           </div>
