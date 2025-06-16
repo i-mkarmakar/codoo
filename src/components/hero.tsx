@@ -47,11 +47,14 @@ export default function Hero() {
             </Badge>
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
               <span className="text-md">⚡Just shipped v1.0</span>
-              <ArrowUpRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+              <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </AnimatedShinyText>
           </div>
           <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl">
-            <span>Code as a Team, Think as One</span> — with AI Collaboration.
+            <span>Code as a Team, Think as One</span>{" "}
+            <span className="max-w-lg font-normal tracking-tighter">
+              — using AI Collaboration.
+            </span>
           </h1>
           <p className="text-muted-foreground mt-4 text-sm">
             AI-powered coding companion — built to simplify collaboration,{" "}
