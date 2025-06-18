@@ -70,7 +70,7 @@ export default function Hero() {
 
           <div className="mt-4 flex flex-col items-start gap-y-4">
             <div className="flex space-x-4">
-              <Button asChild size="lg" className="group cursor-pointer">
+              <Button asChild size="lg" className="group rounded-none cursor-pointer">
                 <Link href="/dashboard">
                   Get Started
                   <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -80,7 +80,7 @@ export default function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="group cursor-pointer"
+                className="group rounded-none cursor-pointer"
               >
                 <Link href="/about">
                   Learn More
@@ -97,7 +97,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-full max-w-2xl">
-          <div className="border-border bg-background z-0 w-full rounded-lg border shadow-xl">
+          <div className="border-border bg-background z-0 w-full border shadow-xl">
             <div className="border-border border-b p-4">
               <div className="flex items-center">
                 <div className="flex gap-x-2">
