@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { AvatarCircles } from "@/components/magicui/avatar-circles";
 
@@ -51,10 +52,15 @@ export default function Hero() {
             </AnimatedShinyText>
           </div>
           <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl">
-            <span>Code as a Team, Think as One</span>{" "}
-            <span className="max-w-lg font-normal tracking-tighter">
-              — using AI Collaboration.
-            </span>
+            <span>Code as a Team, Think as One using — </span>{" "}
+            <PointerHighlight
+              rectangleClassName="border-neutral-300 dark:border-neutral-600"
+              pointerClassName="text-yellow-500"
+            >
+              <span className="relative z-10 font-normal tracking-tighter">
+                AI Collaboration.
+              </span>
+            </PointerHighlight>
           </h1>
           <p className="text-muted-foreground mt-4 text-sm">
             AI-powered coding companion — built to simplify collaboration,{" "}
