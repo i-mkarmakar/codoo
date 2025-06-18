@@ -7,7 +7,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/nav-bar";
-import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Codoo",
@@ -34,9 +33,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <TRPCReactProvider>
-              <Navbar />
               {children}
-              <Footer />
               <Toaster
                 toastOptions={{
                   style: {
