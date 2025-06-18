@@ -82,7 +82,7 @@ export default function Hero() {
                 size="lg"
                 className="group cursor-pointer"
               >
-                <Link href="/dashboard">
+                <Link href="/about">
                   Learn More
                   <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
