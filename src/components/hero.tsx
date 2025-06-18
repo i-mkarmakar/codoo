@@ -70,13 +70,22 @@ export default function Hero() {
 
           <div className="mt-4 flex flex-col items-start gap-y-4">
             <div className="flex space-x-4">
-              <Button size="lg" className="group">
-                Get Started
-                <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <Button asChild size="lg" className="group cursor-pointer">
+                <Link href="/dashboard">
+                  Get Started
+                  <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="group">
-                Learn More
-                <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="group cursor-pointer"
+              >
+                <Link href="/dashboard">
+                  Learn More
+                  <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
             <div className="mt-4 flex items-center gap-x-3">
