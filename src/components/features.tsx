@@ -63,16 +63,25 @@ const features = [
 
 export default function Features({ stars }: { stars: string | null }) {
   return (
-    <div className="font-geist relative mx-auto mt-10 md:w-10/12 dark:bg-black/[0.95]">
+    <div className="font-geist relative mx-auto mt-10 md:w-10/12">
+      <div className="my-20 text-center">
+        <h2 className="text-primary relative text-3xl font-bold">
+          Features
+          <span className="text-primary/5 absolute left-1/2 -z-50 -translate-x-1/2 -translate-y-1/3 transform text-8xl font-extrabold">
+            Features
+          </span>
+        </h2>
+      </div>
+
       <div className="w-full md:mx-0">
         <div className="relative grid grid-cols-1 md:grid-cols-3 md:grid-rows-2">
           {features.map((feature, index) => (
             <div
               key={feature.id}
               className={cn(
-                "flex transform-gpu flex-col justify-center p-10 md:min-h-[240px] border-t border-l",
-                index % 3 === 0 && "md:border-l-0", // Remove left border on first column
-                index < 3 && "md:border-t-0"         // Remove top border on first row
+                "flex transform-gpu flex-col justify-center border-t border-l p-10 md:min-h-[240px]",
+                index % 3 === 0 && "md:border-l-0",
+                index < 3 && "md:border-t-0",
               )}
             >
               <div className="my-1 flex items-center gap-2">
