@@ -46,7 +46,7 @@ export default function AuthPage() {
 
       if (result.status === "complete") {
         await setActiveSignIn({ session: result.createdSessionId });
-        router.push("/dashboard");
+        router.push("/sync-user");
       } else {
         setError("Sign-in not complete.");
       }

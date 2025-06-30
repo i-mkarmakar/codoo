@@ -71,7 +71,7 @@ export default function Hero() {
           <div className="mt-4 flex flex-col items-start gap-y-4">
             <div className="flex space-x-4">
               <Button asChild size="lg" className="group rounded-none cursor-pointer">
-                <Link href="/dashboard">
+                <Link href="/auth">
                   Get Started
                   <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>

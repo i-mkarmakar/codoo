@@ -5,11 +5,13 @@ import useProject from "@/hooks/use-project";
 import { useUser } from "@clerk/nextjs";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
+import CommitLog from "./commit-log";
 
 const DashboardPage = () => {
   const { project } = useProject();
   return (
     <div>
+      {project?.id}
       <div className="flex flex-wrap items-center justify-between gap-y-4">
         <div className="bg-secondary w-fit rounded-md px-4 py-3">
           <div className="flex items-center">
@@ -42,7 +44,9 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      <div className="mt-8">CommitLog</div>
+      <div className="mt-8">
+        <CommitLog />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { pollCommits } from "@/lib/github";
 
 export const projectRouter = createTRPCRouter({
   createProject: protectedProcedure
@@ -11,24 +12,18 @@ export const projectRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const userId = ctx.user.userId; // correct, from Clerk's Auth
-
-      if (!userId) {
-        throw new Error("User not authenticated");
-      }
-
       const project = await ctx.db.project.create({
         data: {
           githubUrl: input.githubUrl,
           name: input.name,
           userToProjects: {
             create: {
-              userId,
+              userId: ctx.user.userId!,
             },
           },
         },
       });
-
+      await pollCommits(project.id);
       return project;
     }),
 
@@ -48,4 +43,16 @@ export const projectRouter = createTRPCRouter({
       },
     });
   }),
+  getCommits: protectedProcedure
+    .input(
+      z.object({
+        projectId: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      pollCommits(input.projectId).then().catch(console.error);
+      return await ctx.db.commit.findMany({
+        where: { projectId: input.projectId },
+      });
+    }),
 });

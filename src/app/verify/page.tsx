@@ -88,7 +88,7 @@ export default function VerifyPage() {
           <Button
             onClick={handleVerify}
             disabled={loading || code.length !== 6}
-            className="rounded-none"
+            className="rounded-none cursor-pointer"
           >
             {loading ? "Verifying..." : "Verify"}
           </Button>
