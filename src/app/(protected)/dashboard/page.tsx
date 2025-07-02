@@ -2,10 +2,10 @@
 
 import React from "react";
 import useProject from "@/hooks/use-project";
-import { useUser } from "@clerk/nextjs";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import CommitLog from "./commit-log";
+import AskQuestionCard from "./ask-question-card";
 
 const DashboardPage = () => {
   const { project } = useProject();
@@ -40,7 +40,7 @@ const DashboardPage = () => {
 
       <div className="mt-4">
         <div className="grid-cols grid gap-4 sm:grid-cols-5">
-          AskQuestionCard MeetingCard
+          <AskQuestionCard />
         </div>
       </div>
 
