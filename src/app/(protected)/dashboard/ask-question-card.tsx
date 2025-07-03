@@ -18,6 +18,7 @@ import CodeReference from "./code-reference";
 import { api } from "@/trpc/react";
 import type { promises } from "dns";
 import { toast } from "sonner";
+import useRefetch from "@/hooks/use-refetch";
 
 const AskQuestionCard = () => {
   const { project } = useProject();
@@ -48,6 +49,7 @@ const AskQuestionCard = () => {
       setLoading(false);
     }
   };
+  const refetch = useRefetch();
 
   return (
     <>
@@ -70,6 +72,7 @@ const AskQuestionCard = () => {
                     {
                       onSuccess: () => {
                         toast.success("Answer Saved!");
+                        refetch();
                       },
                       onError: () => {
                         toast.error("Failed to save answer!");
