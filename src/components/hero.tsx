@@ -43,7 +43,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-4 pt-24 pb-20 sm:flex-row sm:gap-10 lg:px-6 xl:px-8">
         <div className="max-w-xl flex-shrink-0">
           <div>
-            <Badge variant="secondary" className="px-2 py-1" asChild>
+            <Badge variant="secondary" className="px-2 py-1 rounded-none" asChild>
               <Link href="/">What's new</Link>
             </Badge>
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
@@ -105,7 +105,7 @@ export default function Hero() {
                   <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
                   <div className="h-2 w-2 rounded-full bg-green-500"></div>
                 </div>
-                <div className="bg-muted text-muted-foreground ml-4 w-full max-w-[300px] rounded-md px-3 py-1 text-sm">
+                <div className="bg-muted ml-4 w-full max-w-[300px] px-3 py-1 text-sm">
                   https://codoo.dev
                 </div>
               </div>

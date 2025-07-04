@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function AuthPage() {
   const [tab, setTab] = useState<"signin" | "signup">("signin");
@@ -35,6 +37,8 @@ export default function AuthPage() {
     isLoaded: signUpLoaded,
   } = useSignUp();
   const router = useRouter();
+
+  const handleBack = () => router.back();
 
   const handleSignIn = async () => {
     setError("");
@@ -94,8 +98,24 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
-      <div className="w-full max-w-sm space-y-4">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <Button
+        variant="outline"
+        onClick={handleBack}
+        className="absolute top-4 left-4 z-20 flex cursor-pointer items-center gap-1 rounded-none text-sm"
+      >
+        <ArrowLeft />
+        Back
+      </Button>
+      <FlickeringGrid
+        className="absolute inset-0 z-0 size-full opacity-20"
+        squareSize={4}
+        gridGap={6}
+        color="#6B7280"
+        maxOpacity={0.5}
+        flickerChance={0.1}
+      />
+      <div className="relative z-10 w-full max-w-sm space-y-4">
         <div className="mb-2 inline-flex overflow-hidden rounded-none border border-gray-300 dark:border-gray-700">
           <div
             onClick={() => setTab("signin")}
