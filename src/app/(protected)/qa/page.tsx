@@ -32,7 +32,7 @@ const QAPage = () => {
           return (
             <React.Fragment key={index}>
               <SheetTrigger onClick={() => setQuestionIndex(index)}>
-                <div className="flex items-center gap-4 rounded-lg border bg-white p-4 shadow">
+                <div className="flex items-center gap-4 rounded-none border bg-white p-4 shadow">
                   <img
                     className="rounded-full"
                     height={30}

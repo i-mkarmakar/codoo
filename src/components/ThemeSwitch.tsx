@@ -16,12 +16,12 @@ export function ThemeSwitch() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Prevent mismatched UI during hydration
+  if (!mounted) return null;
 
   const currentTheme = theme || "system";
 
   return (
-    <div className="flex items-center gap-1 rounded-full border bg-background p-1">
+    <div className="flex items-center gap-1 border bg-background p-1">
       {modes.map((mode) => (
         <Button
           key={mode}
@@ -29,7 +29,7 @@ export function ThemeSwitch() {
           size="sm"
           onClick={() => setTheme(mode)}
           className={cn(
-            "h-7 w-7 rounded-full p-0",
+            "h-5 w-5 rounded-none p-0 cursor-pointer",
             currentTheme === mode && "bg-primary text-primary-foreground"
           )}
           aria-label={`Switch to ${mode} theme`}

@@ -50,12 +50,6 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader>
-        <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="logo" width={40} height={40} />
-          {open && (
-            <h1 className="text-primary/80 text-xl font-bold">Github</h1>
-          )}
-        </div>
       </SidebarHeader>
 
       <SidebarContent>
@@ -117,7 +111,7 @@ export function AppSidebar() {
               {open && (
                 <SidebarMenuItem>
                   <Link href="/create">
-                    <Button size="sm" variant="outline" className="w-fit">
+                    <Button size="sm" variant="outline" className="w-fit cursor-pointer">
                       <Plus />
                       Create Project
                     </Button>

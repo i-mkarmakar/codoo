@@ -12,7 +12,7 @@ const DashboardPage = () => {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-y-4">
-        <div className="bg-secondary w-fit rounded-md px-4 py-3">
+        <div className="w-fit border rounded-none px-4 py-3">
           <div className="flex items-center">
             <Github className="h-4 w-4" />
             <div className="ml-2">

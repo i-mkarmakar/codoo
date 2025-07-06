@@ -23,7 +23,7 @@ const CommitLog = () => {
                   "absolute top-0 left-0 flex w-6 justify-center",
                 )}
               >
-                <div className="w-px translate-x-1 bg-gray-200"></div>
+                <div className="w-px translate-x-1 bg-primary"></div>
               </div>
               <>
                 <img
@@ -31,15 +31,16 @@ const CommitLog = () => {
                   alt=" commit avatar"
                   className="relative mt-4 size-8 flex-none rounded-full bg-gray-50"
                 />
-                <div className="rounded-mg flex-auto bg-white p-3 ring-1 ring-gray-200 ring-inset">
+                <div className="rounded-none flex-auto bg-transparent p-3 border">
                   <div className="flex justify-between gap-x-4">
                     <Link
                       target="_blank"
                       href={`${project?.githubUrl}/commits/${commit.commitHash}`}
-                      className="py-0.5 text-xs leading-5 text-gray-500"
+                      className="py-0.5 text-xs leading-5 text-muted-foreground"
                     >
                       {commit.commitMessage}
-                      <span className="font-medium text-gray-900">
+                      {" "}
+                      <span className="font-medium text-primary">
                         {commit.commitAuthorName}
                       </span>{" "}
                       {""}
