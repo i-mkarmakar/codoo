@@ -16,7 +16,6 @@ import { askQuestion } from "./actions";
 import { readStreamableValue } from "ai/rsc";
 import CodeReference from "./code-reference";
 import { api } from "@/trpc/react";
-import type { promises } from "dns";
 import { toast } from "sonner";
 import useRefetch from "@/hooks/use-refetch";
 
@@ -99,7 +98,7 @@ const AskQuestionCard = () => {
           ></Button>
         </DialogContent>
       </Dialog>
-      <Card className="relative col-span-2">
+      <Card className="relative col-span-2 rounded-none">
         <CardHeader>
           <CardTitle>Ask a question</CardTitle>
         </CardHeader>
