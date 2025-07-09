@@ -49,7 +49,7 @@ export async function uploadFile(
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            resolve(downloadUrl);
+            resolve(downloadUrl as string);
           });
         },
       );
