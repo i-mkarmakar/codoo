@@ -1,42 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
-import { AvatarCircles } from "@/components/magicui/avatar-circles";
+import { getUserCount } from "@/lib/getUserCount";
 
-const avatars = [
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/16860528",
-    profileUrl: "https://github.com/dillionverma",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/20110627",
-    profileUrl: "https://github.com/tomonarifeehan",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/106103625",
-    profileUrl: "https://github.com/BankkRoll",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/59228569",
-    profileUrl: "https://github.com/safethecode",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/59442788",
-    profileUrl: "https://github.com/sanjay-mali",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/89768406",
-    profileUrl: "https://github.com/itsarghyadas",
-  },
-];
+type Avatar = {
+  id: string;
+  imageUrl: string;
+};
 
 export default function Hero() {
+  const [userCount, setUserCount] = useState<number | null>(null);
+  const [avatars, setAvatars] = useState<Avatar[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await getUserCount();
+        setUserCount(res.userCount);
+        setAvatars(res.avatars);
+      } catch (error) {
+        console.error("Failed to fetch user data", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="relative flex w-full items-center justify-center overflow-hidden px-4 antialiased md:min-h-[40rem]">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-black dark:bg-[radial-gradient(rgba(255,255,255,0.10)_1px,transparent_1px)]"></div>
@@ -52,7 +47,7 @@ export default function Hero() {
             </AnimatedShinyText>
           </div>
           <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl">
-            <span>Code as a Team, Think as One using — </span>{" "}
+            <span>Code as a Team, Think as One using — </span>
             <PointerHighlight
               rectangleClassName="border-neutral-300 dark:border-neutral-600"
               pointerClassName="text-yellow-500"
@@ -70,7 +65,11 @@ export default function Hero() {
 
           <div className="mt-4 flex flex-col items-start gap-y-4">
             <div className="flex space-x-4">
-              <Button asChild size="lg" className="group rounded-none cursor-pointer">
+              <Button
+                asChild
+                size="lg"
+                className="group cursor-pointer rounded-none"
+              >
                 <Link href="/auth">
                   Get Started
                   <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -80,7 +79,7 @@ export default function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="group rounded-none cursor-pointer"
+                className="group cursor-pointer rounded-none"
               >
                 <Link href="/about">
                   Learn More
@@ -88,14 +87,27 @@ export default function Hero() {
                 </Link>
               </Button>
             </div>
+
             <div className="mt-4 flex items-center gap-x-3">
-              <AvatarCircles avatarUrls={avatars} numPeople={100} />
+              {/* Avatar group */}
+              <div className="flex -space-x-3">
+                {avatars.map((avatar) => (
+                  <img
+                    key={avatar.id}
+                    src={avatar.imageUrl}
+                    alt="avatar"
+                    className="h-10 w-10 rounded-full shadow-sm"
+                  />
+                ))}
+              </div>
+
               <span className="text-muted-foreground text-sm font-medium">
-                Joined by <span className="font-semibold">100+</span> developers
+                Joined by <span className="font-semibold">{userCount ?? 100}+</span> developers
               </span>
             </div>
           </div>
         </div>
+
         <div className="w-full max-w-2xl">
           <div className="border-border bg-background z-0 w-full border shadow-xl">
             <div className="border-border border-b p-4">

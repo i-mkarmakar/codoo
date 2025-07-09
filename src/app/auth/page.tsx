@@ -100,7 +100,7 @@ export default function AuthPage() {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
       <Button
-        variant="outline"
+        variant="ghost"
         onClick={handleBack}
         className="absolute top-4 left-4 z-20 flex cursor-pointer items-center gap-1 rounded-none text-sm"
       >
