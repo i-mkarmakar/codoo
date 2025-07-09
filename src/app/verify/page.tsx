@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function VerifyPage() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -53,12 +54,23 @@ export default function VerifyPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-sm rounded-none">
+    <div className="relative flex min-h-screen items-center justify-center p-4">
+      {/* Background Grid */}
+      <FlickeringGrid
+        className="absolute inset-0 z-0 opacity-20"
+        squareSize={4}
+        gridGap={6}
+        color="#6B7280"
+        maxOpacity={0.5}
+        flickerChance={0.1}
+      />
+
+      {/* Foreground Card */}
+      <Card className="relative z-10 w-full max-w-sm rounded-none bg-background/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-xl">Verify Email</CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-4 -mt-4">
+        <CardContent className="-mt-4 grid gap-4">
           <p className="text-muted-foreground text-sm">
             Please check your email and enter the 6-digit verification code.
           </p>
@@ -88,7 +100,7 @@ export default function VerifyPage() {
           <Button
             onClick={handleVerify}
             disabled={loading || code.length !== 6}
-            className="rounded-none cursor-pointer"
+            className="cursor-pointer rounded-none"
           >
             {loading ? "Verifying..." : "Verify"}
           </Button>

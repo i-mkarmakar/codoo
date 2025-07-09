@@ -89,7 +89,6 @@ export default function Hero() {
             </div>
 
             <div className="mt-4 flex items-center gap-x-3">
-              {/* Avatar group */}
               <div className="flex -space-x-3">
                 {avatars.map((avatar) => (
                   <img
@@ -99,10 +98,14 @@ export default function Hero() {
                     className="h-10 w-10 rounded-full shadow-sm"
                   />
                 ))}
+                <div className="bg-background dark:bg-primary h-10 w-10 rounded-full shadow-sm flex items-center justify-center text-sm font-semibold text-primary dark:text-background">
+                  +{userCount ?? 100}
+                </div>
               </div>
-
               <span className="text-muted-foreground text-sm font-medium">
-                Joined by <span className="font-semibold">{userCount ?? 100}+</span> developers
+                Joined by{" "}
+                <span className="font-semibold">{userCount ?? 100}</span>{" "}
+                developers
               </span>
             </div>
           </div>
